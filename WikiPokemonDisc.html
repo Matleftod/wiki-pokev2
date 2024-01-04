@@ -34,6 +34,10 @@
             justify-content: space-evenly;
             margin-top: 30px;
         }
+        .multiplier{
+            color: red;
+            font-weight: bold;
+        }
         #weakTo, #strongAgainst, #immuneTo{
             display: flex;
             flex-direction: column;
@@ -82,7 +86,10 @@
             flex-direction: column;
 
         }
-
+        .zone-type{
+            display: flex;
+            gap: 25px;
+        }
         .zone h2 {
             color: #f8b400;
         }
@@ -255,21 +262,6 @@
     <div id="searchContainer">
         <input type="text" id="searchInput" placeholder="Search Pokémon...">
     </div>
-
-    <div class="type-button normal">NORMAL</div>
-    <div class="type-button rock">ROCK</div>
-    <div class="type-button bug">BUG</div>
-    <div class="type-button ghost">GHOST</div>
-    
-    <div class="type-button water">WATER</div>
-    <div class="type-button grass">GRASS</div>
-    
-    <div class="type-button psychic">PSYCHIC</div>
-    
-    
-    <div class="type-button dark">DARK</div>
-    
-
     <div class="container">
 
         <!-- Zone: Route 215 -->
@@ -541,7 +533,11 @@
         <div class="zone">
             <div class="zone-name">
                 <h2>Manoir Hanté</h2>  
-                
+                <div class="zone-type">
+                    <div class="type-button ghost">GHOST</div>
+                    <div class="type-button psychic">PSYCHIC</div>
+                    <div class="type-button dark">DARK</div>
+                </div>
             </div>
             <ul>
                 <li><span class="percentage" data-value="15">15%</span> <span class="pokemon-name">Gastly (Fantominus)</span></li>
@@ -606,7 +602,10 @@
         <div class="zone">
             <div class="zone-name">
                 <h2>Rivière de l’Envol</h2>
-                <div class="type-button flying">FLYING</div>
+                <div class="zone-type">
+                    <div class="type-button flying">FLYING</div>
+                    <div class="type-button water">WATER</div>
+                </div>
             </div>
             <ul>
                 <li><span class="percentage" data-value="30">30%</span> <span class="pokemon-name">Magikarp (Magicarpe)</span></li>
@@ -628,6 +627,10 @@
         <div class="zone">
             <div class="zone-name">
                 <h2>Collines Verdoyantes</h2>
+                <div class="zone-type">
+                    <div class="type-button bug">BUG</div>
+                    <div class="type-button grass">GRASS</div>
+                </div>
             </div>
             <ul>
                 <li><span class="percentage" data-value="20">20%</span> <span class="pokemon-name">Combee (Apitrini)</span></li>
@@ -819,9 +822,10 @@
                 multiplier = multiplier ? multiplier : ''; // Si aucun multiplicateur, laisse vide
 
                 // Crée l'élément HTML avec la classe correspondante
-                return `<span class="type-button ${typeName.toLowerCase()}">${typeName.toUpperCase()}${multiplier}</span>`;
-            });
+                return `<span class="type-button ${typeName.toLowerCase()}">${typeName.toUpperCase()}<span class='multiplier'> ${multiplier}</span></span>`;
+            }).join('');
         }
+
         // Efface l'affichage de l'efficacité combinée
         function clearCombinedEffectivenessDisplay() {
             document.getElementById('weakTo').innerHTML = '';

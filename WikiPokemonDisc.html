@@ -27,8 +27,19 @@
             display: flex;
             column-gap: 20px;
             justify-content: space-evenly;
-            width: 70%;
             margin: 15px auto;
+        }
+        #combinedEffectiveness{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 30px;
+        }
+        #weakTo, #strongAgainst, #immuneTo{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 20px;
+            text-align: center;
         }
         #searchInput {
             width: 40%; /* Full-width */
@@ -175,11 +186,11 @@
 
         #typeChart {
             display: flex;
+            flex-direction: column;
             justify-content: space-around;
             padding: 20px;
             color: #ffffff;
             margin: 20px auto;
-            width: 50%;
         }
 
         #typeChart h3 {
@@ -205,34 +216,41 @@
 </head>
 <body>
     <h1>Table des types</h1>
-
-    <!-- Type Selection -->
-    <div id="typeSelection">
-        <button class="type-button normal" onclick="updateTypeChart('normal')">NORMAL</button>
-        <button class="type-button fire" onclick="updateTypeChart('fire')">FIRE</button>
-        <button class="type-button water" onclick="updateTypeChart('water')">WATER</button>
-        <button class="type-button electric" onclick="updateTypeChart('electric')">ELECTRIC</button>
-        <button class="type-button grass" onclick="updateTypeChart('grass')">GRASS</button>
-        <button class="type-button ice" onclick="updateTypeChart('ice')">ICE</button>
-        <button class="type-button fighting" onclick="updateTypeChart('fighting')">FIGHTING</button>
-        <button class="type-button poison" onclick="updateTypeChart('poison')">POISON</button>
-        <button class="type-button ground" onclick="updateTypeChart('ground')">GROUND</button>
-    </div>
-
-    <div id="typeSelection">
-        <button class="type-button flying" onclick="updateTypeChart('flying')">FLYING</button>
-        <button class="type-button psychic" onclick="updateTypeChart('psychic')">PSYCHIC</button>
-        <button class="type-button bug" onclick="updateTypeChart('bug')">BUG</button>
-        <button class="type-button rock" onclick="updateTypeChart('rock')">ROCK</button>
-        <button class="type-button ghost" onclick="updateTypeChart('ghost')">GHOST</button>
-        <button class="type-button dragon" onclick="updateTypeChart('dragon')">DRAGON</button>
-        <button class="type-button dark" onclick="updateTypeChart('dark')">DARK</button>
-        <button class="type-button steel" onclick="updateTypeChart('steel')">STEEL</button>
-        <button class="type-button fairy" onclick="updateTypeChart('fairy')">FAIRY</button>
-    </div>
     
     <!-- Type Effectiveness Chart Container -->
-    <div id="typeChart"></div>
+    <div id="typeChart">
+        <!-- Type Selection -->
+        <div id="typeSelection">
+            <button class="type-button normal" onclick="updateTypeChart('normal')">NORMAL</button>
+            <button class="type-button fire" onclick="updateTypeChart('fire')">FIRE</button>
+            <button class="type-button water" onclick="updateTypeChart('water')">WATER</button>
+            <button class="type-button electric" onclick="updateTypeChart('electric')">ELECTRIC</button>
+            <button class="type-button grass" onclick="updateTypeChart('grass')">GRASS</button>
+            <button class="type-button ice" onclick="updateTypeChart('ice')">ICE</button>
+            <button class="type-button fighting" onclick="updateTypeChart('fighting')">FIGHTING</button>
+            <button class="type-button poison" onclick="updateTypeChart('poison')">POISON</button>
+            <button class="type-button ground" onclick="updateTypeChart('ground')">GROUND</button>
+        </div>
+
+        <div id="typeSelection">
+            <button class="type-button flying" onclick="updateTypeChart('flying')">FLYING</button>
+            <button class="type-button psychic" onclick="updateTypeChart('psychic')">PSYCHIC</button>
+            <button class="type-button bug" onclick="updateTypeChart('bug')">BUG</button>
+            <button class="type-button rock" onclick="updateTypeChart('rock')">ROCK</button>
+            <button class="type-button ghost" onclick="updateTypeChart('ghost')">GHOST</button>
+            <button class="type-button dragon" onclick="updateTypeChart('dragon')">DRAGON</button>
+            <button class="type-button dark" onclick="updateTypeChart('dark')">DARK</button>
+            <button class="type-button steel" onclick="updateTypeChart('steel')">STEEL</button>
+            <button class="type-button fairy" onclick="updateTypeChart('fairy')">FAIRY</button>
+        </div>
+        <!-- Section for displaying combined type effectiveness -->
+        <div id="combinedEffectiveness">
+            <div id="weakTo"></div>
+            <div id="strongAgainst"></div>
+            <div id="immuneTo"></div>
+        </div>
+    </div>
+
     <h1>Rencontres Pokémon</h1>
     <div id="searchContainer">
         <input type="text" id="searchInput" placeholder="Search Pokémon...">
@@ -705,41 +723,110 @@
             fairy: { weakTo: ['poison', 'steel'], strongAgainst: ['fighting', 'dragon', 'dark'], immuneTo: ['dragon'] },
         };
 
+        let selectedTypes = []; // Stocke les types sélectionnés
 
+        // Fonction pour mettre à jour l'affichage en fonction des types sélectionnés
         function updateTypeChart(selectedType) {
-              // Highlight the active type button
-            document.querySelectorAll('.type-button').forEach(button => {
-                if (button.textContent.toLowerCase() === selectedType) {
-                button.classList.add('active');
+            // Gestion de la sélection des types
+            const typeIndex = selectedTypes.indexOf(selectedType);
+            if (typeIndex > -1) {
+                selectedTypes.splice(typeIndex, 1); // Retire le type si déjà sélectionné
+            } else {
+                if (selectedTypes.length < 2) {
+                    selectedTypes.push(selectedType); // Ajoute le type si moins de deux sont sélectionnés
                 } else {
-                button.classList.remove('active');
+                    selectedTypes[0] = selectedTypes[1]; // Décale le premier type
+                    selectedTypes[1] = selectedType; // Ajoute le nouveau type
                 }
+            }
+
+            // Met à jour l'affichage des boutons
+            updateTypeButtonsDisplay();
+
+            // Affiche l'efficacité combinée
+            displayCombinedEffectiveness();
+        }
+
+        // Met à jour l'affichage des boutons de type
+        function updateTypeButtonsDisplay() {
+            document.querySelectorAll('.type-button').forEach(button => {
+                const type = button.textContent.toLowerCase();
+                button.classList.toggle('active', selectedTypes.includes(type));
             });
-            const chartContainer = document.getElementById('typeChart');
-            chartContainer.innerHTML = ''; // Clear the previous chart
+        }
 
-            const data = typeEffectiveness[selectedType];
-            if (!data) return; // Exit if no data for selected type
+        // Affiche l'efficacité combinée des types sélectionnés
+        function displayCombinedEffectiveness() {
+            if (selectedTypes.length === 0) {
+                clearCombinedEffectivenessDisplay();
+                return;
+            }
 
-            const createList = (items, title) => {
-                const list = document.createElement('ul');
-                const header = document.createElement('h3');
-                header.textContent = title;
-                list.appendChild(header);
+            const combinedData = selectedTypes.length === 1 ?
+                calculateEffectiveness(selectedTypes[0]) :
+                calculateCombinedEffectiveness(selectedTypes);
 
-                items.forEach(item => {
-                const listItem = document.createElement('li');
-                listItem.textContent = item;
-                list.appendChild(listItem);
-                });
+            updateEffectivenessDisplay(combinedData);
+        }
 
-                return list;
+        function calculateCombinedEffectiveness(selectedTypes) {
+            let weakTo = new Map();
+            let strongAgainst = new Map();
+            let immuneTo = new Set();
+
+            selectedTypes.forEach(type => {
+                const data = typeEffectiveness[type];
+
+                data.weakTo.forEach(w => weakTo.set(w, (weakTo.get(w) || 0) + 1));
+                data.strongAgainst.forEach(s => strongAgainst.set(s, (strongAgainst.get(s) || 0) + 1));
+                data.immuneTo.forEach(i => immuneTo.add(i));
+            });
+
+            // Convertit les Maps et Set en Array, applique le multiplicateur "x4" si nécessaire
+            return {
+                weakTo: Array.from(weakTo).reduce((acc, [type, count]) => {
+                    if (!immuneTo.has(type)) {
+                        acc.push(count === 2 ? `${type} x4` : type);
+                    }
+                    return acc;
+                }, []),
+                strongAgainst: Array.from(strongAgainst).reduce((acc, [type, count]) => {
+                    acc.push(count === 2 ? `${type} x4` : type);
+                    return acc;
+                }, []),
+                immuneTo: Array.from(immuneTo)
             };
+        }
 
-            // Create lists for weaknesses, strengths, and immunities
-            chartContainer.appendChild(createList(data.weakTo, 'Weak To'));
-            chartContainer.appendChild(createList(data.strongAgainst, 'Strong Against'));
-            chartContainer.appendChild(createList(data.immuneTo, 'No Effect Against'));
+        // Fonction pour calculer l'efficacité d'un seul type
+        function calculateEffectiveness(type) {
+            const data = typeEffectiveness[type];
+            return { weakTo: data.weakTo, strongAgainst: data.strongAgainst, immuneTo: data.immuneTo };
+        }
+
+        // Met à jour le DOM avec les données d'efficacité
+        function updateEffectivenessDisplay({ weakTo, strongAgainst, immuneTo }) {
+            document.getElementById('weakTo').innerHTML = '<strong>Weak To:</strong> ' + createTypeElements(weakTo);
+            document.getElementById('strongAgainst').innerHTML = '<strong>Strong Against:</strong> ' + createTypeElements(strongAgainst);
+            document.getElementById('immuneTo').innerHTML = '<strong>No Effect Against:</strong> ' + createTypeElements(immuneTo);
+        }
+
+        // Crée des éléments HTML pour chaque type
+        function createTypeElements(types) {
+            return types.map(type => {
+                // Extrait le nom du type et le multiplicateur si présent
+                let [typeName, multiplier] = type.split(' ');
+                multiplier = multiplier ? multiplier : ''; // Si aucun multiplicateur, laisse vide
+
+                // Crée l'élément HTML avec la classe correspondante
+                return `<span class="type-button ${typeName.toLowerCase()}">${typeName.toUpperCase()}${multiplier}</span>`;
+            });
+        }
+        // Efface l'affichage de l'efficacité combinée
+        function clearCombinedEffectivenessDisplay() {
+            document.getElementById('weakTo').innerHTML = '';
+            document.getElementById('strongAgainst').innerHTML = '';
+            document.getElementById('immuneTo').innerHTML = '';
         }
 
     </script>      

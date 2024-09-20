@@ -1,0 +1,249 @@
+body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    gap: 200px;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#main-title-img{
+    max-width: 800px;
+}
+#table-type-img{
+    max-width: 400px;
+}
+#rencontre-img{
+    max-width: 520px;
+}
+h1 {
+    text-align: center;
+    color: #f8b400;
+    margin: 70px;
+}
+#typeSelection{
+    display: flex;
+    column-gap: 20px;
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+#combinedEffectiveness{
+    display: flex;
+    justify-content: space-evenly;
+}
+.multiplier{
+    color: red;
+    font-weight: bold;
+}
+#weakTo, #strongAgainst, #immuneTo, #resistantTo, #weakAgainst, #noEffectOn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    text-align: center;
+}
+#searchInput {
+    width: 40%; /* Full-width */
+    padding: 12px 20px; /* Some padding */
+    margin: 8px 0; /* Some space around */
+    display: inline-block; /* To follow the flow of the document */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* To include padding and border in the width */
+    background-color: #f8f8f8; /* Light background */
+    font-size: 16px; /* Slightly larger font-size for readability */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for focus */
+}
+
+#searchInput:focus {
+    border-color: #f8b400; /* Highlight color for focus */
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 8px rgba(248, 180, 0, 0.8); /* Glowing effect on focus */
+}
+
+#searchContainer {
+    text-align: center; /* Center the search bar */
+    padding: 20px; /* Padding around the container */
+}
+.zone {
+    flex-grow: 1;
+    flex-basis: calc(33.33% - 20px); /* 33.33% pour 3 colonnes avec un espacement de 20px */
+    background-color: #333;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 8px;
+    box-sizing: border-box; /* Pour inclure le padding et la bordure dans la largeur */
+    min-height: 200px; /* Ajoutez une hauteur minimale pour éviter le chevauchement */
+    position: relative; /* Pour positionner les pourcentages */
+}
+
+.zone-name{
+    display: flex;
+    flex-direction: column;
+
+}
+.zone-type{
+    display: flex;
+    gap: 25px;
+}
+.zone h2 {
+    color: #f8b400;
+}
+.zone ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.zone ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px; /* Largeur fixe pour chaque élément de la liste */
+    margin: 10px auto 0px auto;
+}
+
+.zone span {
+    padding-top: 10px;
+}
+
+/* Styles pour les pourcentages */
+.percentage {
+    font-weight: bold;
+    width: 20%;
+}
+
+.percentage[data-value="30"] {
+    color: #4CAF50; /* Couleur verte pour 30% */
+}
+
+.percentage[data-value="20"] {
+    color: #78af4c; /* Couleur verte pour 30% */
+}
+
+.percentage[data-value="15"] {
+    color: #95af4c; /* Couleur verte pour 30% */
+}
+
+.percentage[data-value="10"] {
+    color: #a0af4c; /* Couleur verte pour 30% */
+}
+
+.percentage[data-value="9"] {
+    color: #a8af4c; /* Couleur verte pour 30% */
+}
+
+.percentage[data-value="5"] {
+    color: #afa54c; /* Couleur verte pour 30% */
+}
+
+.percentage[data-value="4"] {
+    color: #af8c4c; /* Couleur verte pour 30% */
+}
+
+.percentage[data-value="3"] {
+    color: #af6b4c; /* Couleur verte pour 30% */
+}
+
+.percentage[data-value="2"] {
+    color: #af574c; /* Couleur verte pour 30% */
+}
+.percentage[data-value="1"] {
+    color: #FF0000; /* Couleur rouge pour 0% */
+}
+
+/* Styles pour les noms de Pokémon */
+.pokemon-name {
+    width: 50%;
+}
+.type-button {
+    padding: 4px 4px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100px;
+}
+
+.normal { background: #A8A878; }
+.fighting { background: #C03028; }
+.flying { background: #A890F0; }
+.poison { background: #A040A0; }
+.ground { background: #E0C068; }
+.rock { background: #B8A038; }
+.bug { background: #A8B820; }
+.ghost { background: #705898; }
+.steel { background: #B8B8D0; }
+.fire { background: #F08030; }
+.water { background: #6890F0; }
+.grass { background: #78C850; }
+.electric { background: #F8D030; }
+.psychic { background: #F85888; }
+.ice { background: #98D8D8; }
+.dragon { background: #7038F8; }
+.dark { background: #705848; }
+.fairy { background: #EE99AC; }
+
+#typeChart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #ffffff;
+    margin: 20px auto;
+    gap: 30px;
+}
+
+#typeChart h3 {
+    text-align: center;
+    color: #f8b400;
+}
+
+#typeChart ul {
+   list-style-type: none;
+   padding: 0;
+}
+
+#typeChart li {
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* Add styles for when a type button is active/selected */
+.type-button.active {
+    box-shadow: 0 0 12px rgba(248, 180, 0, 1);
+}
+
+#typeMode {
+    justify-content: center;
+    display: flex;
+}
+
+.mode-button {
+    background-color: #333;
+    color: #f8b400;
+    border: 2px solid #f8b400;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.mode-button.active {
+    background-color: #f8b400;
+    color: #333;
+}

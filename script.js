@@ -1,3 +1,18 @@
+document.getElementById('menu-button').addEventListener('click', function () {
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    dropdownMenu.style.display = (dropdownMenu.style.display === 'block') ? 'none' : 'block';
+});
+
+// Ajoute un listener pour rendre le menu sticky lorsqu'on scrolle
+window.onscroll = function() {
+    const menuContainer = document.getElementById('menu-container');
+    if (window.pageYOffset > 10) {
+        menuContainer.classList.add("sticky");
+    } else {
+        menuContainer.classList.remove("sticky");
+    }
+};
+
 //Search bar
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('searchInput');

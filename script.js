@@ -203,7 +203,7 @@ function updateTypeChart(selectedType) {
 // Met à jour l'affichage des boutons de type
 function updateTypeButtonsDisplay() {
     document.querySelectorAll('.type-button').forEach(button => {
-        const type = button.textContent.toLowerCase();
+        const type = button.getAttribute('data-type');
         button.classList.toggle('active', selectedTypes.includes(type));
     });
 }
@@ -316,11 +316,14 @@ function createTypeElements(types) {
         let [typeName, multiplier] = type.split(' ');
         multiplier = multiplier ? multiplier : '';
 
+        // Ajout de la classe 'gradient-border' pour les types x4
+        const multiplierClass = multiplier === 'x4' ? 'gradient-border' : '';
+
         // Chemin vers l'icône correspondant au type
         const iconPath = `images/icons/${typeName.toLowerCase()}.svg`;
 
         return `
-            <span class="type-button ${typeName.toLowerCase()}">
+            <span class="type-button ${typeName.toLowerCase()} ${multiplierClass}">
                 <img src="${iconPath}" alt="${typeName}" style="width: 19px; height: 19px; vertical-align: middle; margin-right: 5px;">
                 ${typeName.toUpperCase()}<span class='multiplier'> ${multiplier}</span>
             </span>`;

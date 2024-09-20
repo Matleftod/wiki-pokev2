@@ -50,6 +50,8 @@ h1 {
 .multiplier{
     color: red;
     font-weight: bold;
+    margin-right: 3px;
+    text-shadow: 0.5px 0.5px 0 white, -0.5px 0.5px 0 white, 0.5px -0.5px 0 white, -0.5px -0.5px 0 white;
 }
 #weakTo, #strongAgainst, #immuneTo, #resistantTo, #weakAgainst, #noEffectOn{
     display: flex;
@@ -180,7 +182,7 @@ h1 {
     font-weight: bold;
     font-size: 14px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -191,7 +193,13 @@ h1 {
 .type-button img {
     width: 20px;
     height: 20px;
+    margin-left: 1px;
     vertical-align: middle;
+}
+
+.type-name {
+    flex-grow: 1; /* Le texte prend tout l'espace disponible */
+    text-align: center; /* Centrer le texte */
 }
 
 .normal { background: #A8A878; }
@@ -239,7 +247,7 @@ h1 {
 
 /* Add styles for when a type button is active/selected */
 .type-button.active {
-    box-shadow: 0 0 12px rgba(248, 180, 0, 1);
+    box-shadow: 0 0 12px rgb(255, 255, 255);
 }
 
 #typeMode {
@@ -247,17 +255,119 @@ h1 {
     display: flex;
 }
 
-.mode-button {
+#attackMode {
     background-color: #333;
-    color: #f8b400;
-    border: 2px solid #f8b400;
+    color: #c03028;
+    border: 2px solid #c03028;
     padding: 10px 20px;
     margin: 10px;
     cursor: pointer;
     border-radius: 5px;
+    font-weight: bold;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
-.mode-button.active {
-    background-color: #f8b400;
-    color: #333;
+#attackMode svg, #defenseMode svg{
+    max-width: 20px;
+    max-height: 20px;
+}
+
+#attackMode path{
+    stroke: #c03028;
+    fill: #c03028;
+}
+
+#attackMode.active path, #defenseMode.active path{
+    stroke: white;
+    fill: white;
+}
+
+#defenseMode path{
+    stroke: #5255f3;
+    fill: #5255f3;
+}
+
+#defenseMode {
+    background-color: #333;
+    color: #5255f3;
+    border: 2px solid #7883ff;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#attackMode.active {
+    background-color: #9d0000;
+    color: #ffffff;
+    font-weight: bold;
+    border: 2px solid #e59692;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+#defenseMode.active {
+    background-color: #00399d;
+    color: #ffffff;
+    font-weight: bold;
+    border: 2px solid #9295e5;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+/* Ajoute une animation pour les types avec x4 */
+.type-button[data-multiplier="x4"] {
+    position: relative;
+    animation: pulseGlow 1.5s infinite;
+    border: 2px solid rgba(255, 255, 255, 0.7); /* Optionnel : Ajoute une bordure autour */
+}
+
+/* Animation de pulsation */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 0, 0, 0.3);
+    }
+}
+
+/* Appliquer un contour animé via box-shadow aux types avec x4 */
+.gradient-border {
+    box-shadow: 0 0 10px 5px rgba(255, 0, 127, 0.8); /* Dégradé initial */
+    animation: gradient-box-shadow 2s linear infinite; /* Animation */
+}
+
+@keyframes gradient-box-shadow {
+    0% {
+        box-shadow: 0 0 5px 2.5px rgba(255, 0, 127, 0.8),
+                    0 0 10px 5px rgba(255, 153, 0, 0.6);
+    }
+    25% {
+        box-shadow: 0 0 6px 3px rgba(255, 102, 51, 0.8),
+                    0 0 11px 5.5px rgba(255, 94, 77, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 7.5px 3.5px rgba(255, 153, 0, 0.8),
+                    0 0 12.5px 6px rgba(243, 16, 0, 0.6);
+    }
+    75% {
+        box-shadow: 0 0 6px 3px rgba(255, 77, 156, 0.8),
+                    0 0 11px 5.5px rgba(243, 0, 77, 0.6);
+    }
+    90% {
+        box-shadow: 0 0 5px 2.5px rgba(243, 16, 0, 0.6),
+                    0 0 10px 5px rgba(255, 0, 127, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px 2.5px rgba(255, 0, 127, 0.8),
+                    0 0 10px 5px rgba(255, 153, 0, 0.6);
+    }
 }

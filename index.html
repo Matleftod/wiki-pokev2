@@ -17,87 +17,148 @@
             <div>
                 <!-- Type Selection -->
                 <div id="typeSelection">
-                    <button class="type-button normal" onclick="updateTypeChart('normal')">
+                    <button class="type-button normal" data-type="normal" onclick="updateTypeChart('normal')">
                         <img src="images/icons/normal.svg" alt="">
-                        NORMAL
+                        <span class="type-name">NORMAL</span>
                     </button>
-                    <button class="type-button fire" onclick="updateTypeChart('fire')">
+                    <button class="type-button fire" data-type="fire" onclick="updateTypeChart('fire')">
                         <img src="images/icons/fire.svg" alt="">
-                        FIRE
+                        <span class="type-name">FIRE</span>
                     </button>
-                    <button class="type-button water" onclick="updateTypeChart('water')">
+                    <button class="type-button water" data-type="water" onclick="updateTypeChart('water')">
                         <img src="images/icons/water.svg" alt="">
-                        WATER
+                        <span class="type-name">WATER</span>
                     </button>
-                    <button class="type-button electric" onclick="updateTypeChart('electric')">
+                    <button class="type-button electric" data-type="electric" onclick="updateTypeChart('electric')">
                         <img src="images/icons/electric.svg" alt="">
-                        ELECTRIC
+                        <span class="type-name">ELECTRIC</span>
                     </button>
-                    <button class="type-button grass" onclick="updateTypeChart('grass')">
+                    <button class="type-button grass" data-type="grass" onclick="updateTypeChart('grass')">
                         <img src="images/icons/grass.svg" alt="">
-                        GRASS
+                        <span class="type-name">GRASS</span>
                     </button>
-                    <button class="type-button ice" onclick="updateTypeChart('ice')">
+                    <button class="type-button ice" data-type="ice" onclick="updateTypeChart('ice')">
                         <img src="images/icons/ice.svg" alt="">
-                        ICE
+                        <span class="type-name">ICE</span>
                     </button>
-                    <button class="type-button fighting" onclick="updateTypeChart('fighting')">
+                    <button class="type-button fighting" data-type="fighting" onclick="updateTypeChart('fighting')">
                         <img src="images/icons/fighting.svg" alt="">
-                        FIGHTING
+                        <span class="type-name">FIGHTING</span>
                     </button>
-                    <button class="type-button poison" onclick="updateTypeChart('poison')">
+                    <button class="type-button poison" data-type="poison" onclick="updateTypeChart('poison')">
                         <img src="images/icons/poison.svg" alt="">
-                        POISON
+                        <span class="type-name">POISON</span>
                     </button>
-                    <button class="type-button ground" onclick="updateTypeChart('ground')">
+                    <button class="type-button ground" data-type="ground" onclick="updateTypeChart('ground')">
                         <img src="images/icons/ground.svg" alt="">
-                        GROUND
+                        <span class="type-name">GROUND</span>
                     </button>
                 </div>
 
                 <div id="typeSelection">
-                    <button class="type-button flying" onclick="updateTypeChart('flying')">
+                    <button class="type-button flying" data-type="flying" onclick="updateTypeChart('flying')">
                         <img src="images/icons/flying.svg" alt="">
-                        FLYING
+                        <span class="type-name">FLYING</span>
                     </button>
-                    <button class="type-button psychic" onclick="updateTypeChart('psychic')">
+                    <button class="type-button psychic" data-type="psychic" onclick="updateTypeChart('psychic')">
                         <img src="images/icons/psychic.svg" alt="">
-                        PSYCHIC
+                        <span class="type-name">PSYCHIC</span>
                     </button>
-                    <button class="type-button bug" onclick="updateTypeChart('bug')">
+                    <button class="type-button bug" data-type="bug" onclick="updateTypeChart('bug')">
                         <img src="images/icons/bug.svg" alt="">
-                        BUG
+                        <span class="type-name">BUG</span>
                     </button>
-                    <button class="type-button rock" onclick="updateTypeChart('rock')">
+                    <button class="type-button rock" data-type="rock" onclick="updateTypeChart('rock')">
                         <img src="images/icons/rock.svg" alt="">
-                        ROCK
+                        <span class="type-name">ROCK</span>
                     </button>
-                    <button class="type-button ghost" onclick="updateTypeChart('ghost')">
+                    <button class="type-button ghost" data-type="ghost" onclick="updateTypeChart('ghost')">
                         <img src="images/icons/ghost.svg" alt="">
-                        GHOST
+                        <span class="type-name">GHOST</span>
                     </button>
-                    <button class="type-button dragon" onclick="updateTypeChart('dragon')">
+                    <button class="type-button dragon" data-type="dragon" onclick="updateTypeChart('dragon')">
                         <img src="images/icons/dragon.svg" alt="">
-                        DRAGON
+                        <span class="type-name">DRAGON</span>
                     </button>
-                    <button class="type-button dark" onclick="updateTypeChart('dark')">
+                    <button class="type-button dark" data-type="dark" onclick="updateTypeChart('dark')">
                         <img src="images/icons/dark.svg" alt="">
-                        DARK
+                        <span class="type-name">DARK</span>
                     </button>
-                    <button class="type-button steel" onclick="updateTypeChart('steel')">
+                    <button class="type-button steel" data-type="steel" onclick="updateTypeChart('steel')">
                         <img src="images/icons/steel.svg" alt="">
-                        STEEL
+                        <span class="type-name">STEEL</span>
                     </button>
-                    <button class="type-button fairy" onclick="updateTypeChart('fairy')">
+                    <button class="type-button fairy" data-type="fairy" onclick="updateTypeChart('fairy')">
                         <img src="images/icons/fairy.svg" alt="">
-                        FAIRY
+                        <span class="type-name">FAIRY</span>
                     </button>
                 </div>
             </div>
 
             <div id="typeMode">
-                <button id="attackMode" class="mode-button active">Mode Attaque</button>
-                <button id="defenseMode" class="mode-button">Mode Défense</button>
+                <button id="attackMode" class="mode-button active">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                        width="1210.000000pt" height="1280.000000pt" viewBox="0 0 1210.000000 1280.000000"
+                        preserveAspectRatio="xMidYMid meet">
+                        <metadata>
+                        Created by potrace 1.15, written by Peter Selinger 2001-2017
+                        </metadata>
+                        <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
+                        fill="#009688" stroke="none">
+                        <path d="M11840 12724 c-129 -41 -325 -104 -435 -139 -396 -125 -613 -194
+                        -800 -254 -104 -33 -298 -94 -430 -136 -132 -43 -306 -98 -387 -123 l-147 -47
+                        -3071 -3630 c-1689 -1996 -3077 -3634 -3084 -3639 -9 -6 -164 111 -521 397
+                        l-508 405 -354 -424 c-194 -234 -353 -428 -353 -432 0 -5 276 -147 613 -317
+                        336 -169 614 -309 616 -311 1 -1 -13 -22 -34 -46 -26 -32 -51 -49 -88 -62 -33
+                        -11 -75 -38 -116 -75 l-64 -57 13 -52 12 -53 -74 -87 c-71 -83 -77 -88 -138
+                        -104 -56 -15 -71 -25 -116 -75 -52 -58 -53 -58 -47 -113 l5 -55 -69 -92 -68
+                        -92 -67 -7 c-66 -6 -69 -8 -111 -58 -76 -91 -72 -80 -57 -142 l13 -55 -72 -73
+                        c-68 -69 -76 -74 -144 -90 -67 -15 -76 -21 -121 -72 l-49 -56 13 -53 13 -54
+                        -54 -73 c-29 -40 -54 -74 -55 -76 0 -1 -31 -5 -67 -9 -64 -6 -67 -7 -123 -64
+                        -32 -33 -62 -59 -66 -59 -5 0 -178 136 -384 301 -313 251 -378 299 -389 288
+                        -17 -18 -475 -749 -475 -758 0 -4 128 -105 285 -225 157 -120 287 -222 290
+                        -226 3 -4 -40 -104 -95 -221 -55 -117 -97 -216 -93 -219 5 -4 229 -175 498
+                        -380 270 -206 545 -416 612 -467 l122 -94 202 131 c111 71 206 130 211 130 4
+                        0 134 -97 289 -216 154 -118 284 -214 289 -212 14 5 640 542 640 549 0 4 -158
+                        133 -351 288 -267 214 -345 281 -326 281 18 0 41 17 80 61 46 52 56 70 61 112
+                        6 44 17 62 89 148 l82 98 67 0 68 1 44 60 c32 45 45 74 50 112 6 45 15 60 77
+                        128 l69 77 75 6 c73 5 76 7 135 58 l61 53 -6 45 c-4 25 -9 53 -11 61 -2 9 25
+                        44 69 87 66 66 78 73 142 89 59 15 78 26 122 68 53 50 53 51 53 111 l0 60 83
+                        83 c79 78 88 85 154 102 61 16 76 25 121 72 48 49 52 56 52 104 0 41 5 55 26
+                        75 l26 24 36 -40 c21 -22 210 -228 421 -458 211 -230 387 -417 392 -415 19 7
+                        749 782 742 788 -5 4 -223 163 -486 354 l-477 348 452 456 c426 430 705 712
+                        1788 1807 245 247 639 646 876 885 236 239 1019 1031 1739 1760 720 729 1472
+                        1489 1671 1690 l362 365 16 160 c9 88 32 318 51 510 19 193 55 555 80 805 24
+                        250 52 519 60 598 18 172 18 172 3 172 -7 -1 -119 -35 -248 -76z"/>
+                        </g>
+                    </svg>
+                    Mode Attaque
+                </button>
+                <button id="defenseMode" class="mode-button">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    width="1078.000000pt" height="1280.000000pt" viewBox="0 0 1078.000000 1280.000000"
+                    preserveAspectRatio="xMidYMid meet">
+                    <metadata>
+                    Created by potrace 1.15, written by Peter Selinger 2001-2017
+                    </metadata>
+                    <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
+                    fill="#000000" stroke="none">
+                    <path d="M5145 12699 c-505 -260 -1279 -603 -1769 -784 -562 -206 -1129 -364
+                    -1721 -479 -121 -24 -762 -131 -1344 -226 -140 -22 -267 -48 -282 -56 l-29
+                    -15 0 -202 c0 -352 60 -1729 105 -2427 17 -252 71 -919 81 -985 26 -187 146
+                    -754 225 -1068 175 -695 331 -1163 605 -1814 141 -335 273 -583 582 -1093 228
+                    -374 394 -619 672 -990 352 -468 746 -876 1317 -1361 647 -551 735 -620 1021
+                    -790 101 -61 224 -137 275 -170 107 -71 392 -213 458 -229 44 -11 51 -9 145
+                    30 184 78 339 156 439 222 55 35 184 115 287 177 249 149 418 281 983 765 379
+                    325 424 368 712 669 377 394 442 472 777 935 270 373 423 613 722 1127 250
+                    432 490 983 716 1645 171 503 408 1514 472 2015 69 536 149 1989 182 3296 6
+                    245 5 257 -12 263 -59 17 -490 95 -814 146 -442 71 -872 148 -1095 196 -640
+                    140 -1262 337 -1900 602 -393 163 -910 399 -1296 592 -283 142 -256 142 -514
+                    9z"/>
+                    </g>
+                    </svg>
+                    Mode Défense
+                </button>
             </div>
 
             <!-- Section for displaying combined type effectiveness -->

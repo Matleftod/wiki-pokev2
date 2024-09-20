@@ -38,6 +38,11 @@ h1 {
     justify-content: space-evenly;
     margin-top: 15px;
 }
+#typeSelection img{
+    width: 19px; 
+    height: 19px; 
+    vertical-align: middle; 
+}
 #combinedEffectiveness{
     display: flex;
     justify-content: space-evenly;
@@ -174,10 +179,19 @@ h1 {
     color: white;
     font-weight: bold;
     font-size: 14px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 100px;
+    width: 120px;
+    gap: 5px;
+}
+
+.type-button img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
 
 .normal { background: #A8A878; }

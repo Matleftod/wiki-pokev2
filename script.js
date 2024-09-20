@@ -218,8 +218,6 @@ function displayCombinedEffectiveness() {
     const combinedData = selectedTypes.length === 1
         ? calculateEffectiveness(selectedTypes[0])
         : calculateCombinedEffectiveness(selectedTypes);
-
-    console.log(combinedData)
     updateEffectivenessDisplay(combinedData);
 }
 
@@ -312,12 +310,20 @@ function updateEffectivenessDisplay({ weakTo, strongAgainst, immuneTo, resistant
     }
 }
 
-// Crée des éléments HTML pour chaque type
+// Crée des éléments HTML pour chaque type avec les icônes associées
 function createTypeElements(types) {
     return types.map(type => {
         let [typeName, multiplier] = type.split(' ');
         multiplier = multiplier ? multiplier : '';
-        return `<span class="type-button ${typeName.toLowerCase()}">${typeName.toUpperCase()}<span class='multiplier'> ${multiplier}</span></span>`;
+
+        // Chemin vers l'icône correspondant au type
+        const iconPath = `images/icons/${typeName.toLowerCase()}.svg`;
+
+        return `
+            <span class="type-button ${typeName.toLowerCase()}">
+                <img src="${iconPath}" alt="${typeName}" style="width: 19px; height: 19px; vertical-align: middle; margin-right: 5px;">
+                ${typeName.toUpperCase()}<span class='multiplier'> ${multiplier}</span>
+            </span>`;
     }).join('');
 }
 

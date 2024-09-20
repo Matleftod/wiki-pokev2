@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     text-align: center;
     display: flex;
@@ -38,21 +42,35 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Animation de rotation */
+#menu-button img.rotate {
+    transition: transform 0.3s ease;
+    transform: rotate(90deg);
+}
+
 #menu-button img {
     width: 25px;
     height: 25px;
+    transition: transform 0.3s ease;
 }
 
-/* Style du menu déroulant */
+/* Menu déroulant */
 #dropdown-menu {
     position: absolute;
     top: 50px;
-    left: 0;
+    left: -200px; /* Caché au début (hors écran à gauche) */
     width: max-content;
     background-color: #444;
     border-radius: 5px;
-    display: none; /* Caché au début */
+    display: block;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: left 0.5s ease, opacity 0.5s ease;
+}
+
+#dropdown-menu.open {
+    left: 0; /* Le menu apparaît */
+    opacity: 1; /* Transition d'opacité pour le rendre visible */
 }
 
 #dropdown-menu ul {
@@ -71,7 +89,7 @@ body {
     gap: 15px;
 }
 
-#menu-pokedex img, #menu-bush img{
+#menu-pokedex img, #menu-bush img, #menu-crown img {
     max-width: 33px;
 }
 
@@ -96,6 +114,9 @@ body {
 
 #main-title-img{
     max-width: 800px;
+}
+#wall-fame-img{
+    max-width: 280px;
 }
 #table-type-img{
     max-width: 400px;

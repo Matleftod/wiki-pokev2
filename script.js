@@ -1,6 +1,15 @@
 document.getElementById('menu-button').addEventListener('click', function () {
     const dropdownMenu = document.getElementById('dropdown-menu');
-    dropdownMenu.style.display = (dropdownMenu.style.display === 'block') ? 'none' : 'block';
+    const icon = document.querySelector('#menu-button img');
+
+    // Toggle the 'open' class to animate the menu sliding in/out
+    if (dropdownMenu.classList.contains('open')) {
+        dropdownMenu.classList.remove('open');
+        icon.classList.remove('rotate'); // Retire la classe de rotation
+    } else {
+        dropdownMenu.classList.add('open');
+        icon.classList.add('rotate'); // Ajoute la classe de rotation
+    }
 });
 
 // Ajoute un listener pour rendre le menu sticky lorsqu'on scrolle

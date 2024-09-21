@@ -233,6 +233,10 @@ h1 {
     color: #4CAF50; /* Couleur verte pour 30% */
 }
 
+.percentage[data-value="24"] {
+    color: #63af4c; /* Couleur verte pour 30% */
+}
+
 .percentage[data-value="20"] {
     color: #78af4c; /* Couleur verte pour 30% */
 }
@@ -247,6 +251,14 @@ h1 {
 
 .percentage[data-value="9"] {
     color: #a8af4c; /* Couleur verte pour 30% */
+}
+
+.percentage[data-value="8"] {
+    color: #b2b952; /* Couleur verte pour 30% */
+}
+
+.percentage[data-value="7"] {
+    color: #b2b952; /* Couleur verte pour 30% */
 }
 
 .percentage[data-value="5"] {

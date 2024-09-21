@@ -73,9 +73,9 @@ body {
     opacity: 1; /* Transition d'opacité pour le rendre visible */
 }
 
-#dropdown-menu ul {
+.main-ul {
     list-style: none;
-    padding: 10px;
+    padding: 0px;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -87,6 +87,19 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+}
+
+.main-ul li {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.main-ul li:first-child {
+    padding-top: 10px;
+}
+
+.main-ul li:last-child {
+    padding-bottom: 10px;
 }
 
 #menu-pokedex img, #menu-bush img, #menu-crown img {
@@ -102,6 +115,64 @@ body {
 
 #dropdown-menu ul li a:hover {
     color: #f8b400;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #333;
+    min-width: 250px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 1;
+    list-style-type: none;
+    max-height: 400px; /* Limite la hauteur du menu */
+    overflow-y: auto;  /* Active le défilement vertical */
+    scrollbar-width: thin; /* Optionnel: Personnalisation de la largeur de la barre de défilement */
+}
+
+/* Pour un meilleur contrôle sur la barre de défilement sur Chrome/Edge */
+.dropdown-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li {
+    padding: 8px 16px;
+    color: white;
+}
+
+.dropdown-content li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.dropdown-content li a:hover {
+    background-color: #f8b400;
+}
+
+#dropdown-menu ul {
+    gap: 10px;
 }
 
 /* Sticky style */
@@ -210,6 +281,7 @@ h1 {
     padding: 0;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 .zone ul li {
     display: flex;
@@ -217,10 +289,6 @@ h1 {
     align-items: center;
     width: 300px; /* Largeur fixe pour chaque élément de la liste */
     margin: 10px auto 0px auto;
-}
-
-.zone span {
-    padding-top: 10px;
 }
 
 /* Styles pour les pourcentages */

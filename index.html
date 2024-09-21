@@ -12,7 +12,7 @@
             <img src="images/icons/Poke_Ball_icon.svg" alt="Menu Icon">
         </div>
         <div id="dropdown-menu">
-            <ul>
+            <ul class="main-ul">
                 <li id="menu-crown">
                     <img src="images/pokemon-crown.png" alt="Menu crown">
                     <a href="#wall-fame-img">Wall of fame</a>
@@ -21,13 +21,41 @@
                     <img src="images/pokedex.png" alt="Menu pokedex">
                     <a href="#table-type-img">Table des Types</a>
                 </li>
-                <li id="menu-bush">
+                <li id="menu-bush" class="dropdown">
                     <img src="images/bush.png" alt="Menu tall grass">
                     <a href="#rencontre-img">Rencontres</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#route-1">Route 1</a></li>
+                        <li><a href="#route-2">Route 2</a></li>
+                        <li><a href="#route-3">Route 3</a></li>
+                        <li><a href="#route-206">Route 206</a></li>
+                        <li><a href="#route-215">Route 215</a></li>
+                        <li><a href="#vieil-antre">Vieil Antre</a></li>
+                        <li><a href="#soulac-sur-chein">Soulac Sur Chein</a></li>
+                        <li><a href="#texas">Texas</a></li>
+                        <li><a href="#ranch-de-bastien">Ranch de Bastien</a></li>
+                        <li><a href="#sommet">Sommet</a></li>
+                        <li><a href="#canal-plus">Canal +</a></li>
+                        <li><a href="#grotte-passage">Grotte du Passage</a></li>
+                        <li><a href="#parc-volcanique">Parc Volcanique</a></li>
+                        <li><a href="#nid-du-dragon">Nid du Dragon</a></li>
+                        <li><a href="#ruines-antiques">Ruines Antiques</a></li>
+                        <li><a href="#bosquet-dacier">Bosquet d’Acier</a></li>
+                        <li><a href="#ilot-feerique">Ilot Féérique</a></li>
+                        <li><a href="#glaciers-eternels">Glaciers Eternels</a></li>
+                        <li><a href="#colisee">Colisée</a></li>
+                        <li><a href="#manoir-hante">Manoir Hanté</a></li>
+                        <li><a href="#canyon-toxique">Canyon Toxique</a></li>
+                        <li><a href="#centrale-electrique">Centrale Electrique</a></li>
+                        <li><a href="#riviere-envol">Rivière de l’Envol</a></li>
+                        <li><a href="#collines-verdoyantes">Collines Verdoyantes</a></li>
+                        <li><a href="#zone-zero">Zone Zéro</a></li>
+                        <li><a href="#jardin-zero">Jardin Zéro</a></li>
+                    </ul>                    
                 </li>
             </ul>
         </div>
-    </div>    
+    </div> 
     
     <img id="main-title-img" src="images/Pokemon-Discord-2-20-09-2024.png" alt="Pokemon-Discord-2">
     <div>
@@ -448,7 +476,10 @@
             <div class="zone" id="parc-volcanique">
                 <div class="zone-name">
                     <h2>Parc Volcanique</h2>
-                    <div class="type-button fire">FIRE</div>
+                    <div class="type-button fire">
+                        <img src="images/icons/fire.svg" alt="">
+                        <span class="type-name">FIRE</span>
+                    </div>
                 </div>
                 <ul>
                     <li><span class="percentage" data-value="20">20%</span> <span class="pokemon-name">Sizzlipede (Grillepattes)</span></li>
@@ -471,7 +502,10 @@
             <div class="zone" id="nid-du-dragon">
                 <div class="zone-name">
                     <h2>Nid du Dragon</h2>
-                    <div class="type-button dragon">DRAGON</div>
+                    <div class="type-button dragon">
+                        <img src="images/icons/dragon.svg" alt="">
+                        <span class="type-name">DRAGON</span>
+                    </div>
                 </div>
                 <ul>
                     <li><span class="percentage" data-value="20">20%</span> <span class="pokemon-name">Dunsparce (Insolourdo)</span></li>
@@ -495,9 +529,14 @@
                 <div class="zone-name">
                     <h2>Ruines Antiques</h2>
                     <div class="zone-type">
-                        <div class="type-button ghost">GHOST</div>
-                        <div class="type-button psychic">PSYCHIC</div>
-                        <div class="type-button dark">DARK</div>
+                        <div class="type-button ground">
+                            <img src="images/icons/ground.svg" alt="">
+                            <span class="type-name">GROUND</span>
+                        </div>
+                        <div class="type-button rock">
+                            <img src="images/icons/rock.svg" alt="">
+                            <span class="type-name">ROCK</span>
+                        </div>
                     </div>
                 </div>
                 <ul>
@@ -519,7 +558,10 @@
             <div class="zone" id="bosquet-dacier">
                 <div class="zone-name">
                     <h2>Bosquet d’Acier</h2>    
-                    <div class="type-button steel">STEEL</div>        
+                    <div class="type-button steel">
+                        <img src="images/icons/steel.svg" alt="">
+                        <span class="type-name">STEEL</span>
+                    </div>        
                 </div>
                 <ul>
                     <li><span class="percentage" data-value="20">20%</span> <span class="pokemon-name">Tinkatink (Forgerette)</span></li>
@@ -540,7 +582,10 @@
             <div class="zone" id="ilot-feerique">
                 <div class="zone-name">
                     <h2>Ilot Féérique</h2>
-                    <div class="type-button fairy">FAIRY</div>
+                    <div class="type-button fairy">
+                        <img src="images/icons/fairy.svg" alt="">
+                        <span class="type-name">FAIRY</span>
+                    </div>
                 </div>
                 <ul>
                     <li><span class="percentage" data-value="10">10%</span> <span class="pokemon-name">Impidimp (Grimalin)</span></li>
@@ -562,7 +607,10 @@
             <div class="zone" id="glaciers-eternels">
                 <div class="zone-name">
                     <h2>Glaciers Eternels</h2>
-                    <div class="type-button ice">ICE</div>
+                    <div class="type-button ice">
+                        <img src="images/icons/ice.svg" alt="">
+                        <span class="type-name">ICE</span>
+                    </div>
                 </div>
                 <ul>
                     <li><span class="percentage" data-value="15">15%</span> <span class="pokemon-name">Sandshrew Alola (Sabelette d'Alola)</span></li>
@@ -582,7 +630,10 @@
             <div class="zone" id="colisee">
                 <div class="zone-name">
                     <h2>Colisée</h2>
-                    <div class="type-button fighting">FIGHTING</div>
+                    <div class="type-button fighting">
+                        <img src="images/icons/fighting.svg" alt="">
+                        <span class="type-name">FIGHTING</span>
+                    </div>
                 </div>
                 <ul>
                     <li><span class="percentage" data-value="20">20%</span> <span class="pokemon-name">Meditite (Méditikka)</span></li>
@@ -606,9 +657,18 @@
                 <div class="zone-name">
                     <h2>Manoir Hanté</h2>  
                     <div class="zone-type">
-                        <div class="type-button ghost">GHOST</div>
-                        <div class="type-button psychic">PSYCHIC</div>
-                        <div class="type-button dark">DARK</div>
+                        <div class="type-button ghost">
+                            <img src="images/icons/ghost.svg" alt="">
+                            <span class="type-name">GHOST</span>
+                        </div>
+                        <div class="type-button psychic">
+                            <img src="images/icons/psychic.svg" alt="">
+                            <span class="type-name">PSYCHIC</span>
+                        </div>
+                        <div class="type-button dark">
+                            <img src="images/icons/dark.svg" alt="">
+                            <span class="type-name">DARK</span>
+                        </div>
                     </div>
                 </div>
                 <ul>
@@ -632,7 +692,10 @@
             <div class="zone" id="canyon-toxique">
                 <div class="zone-name">
                     <h2>Canyon Toxique</h2>
-                    <div class="type-button poison">POISON</div>
+                    <div class="type-button poison">
+                        <img src="images/icons/poison.svg" alt="">
+                        <span class="type-name">POISON</span>
+                    </div>
                 </div>
                 <ul>
                     <li><span class="percentage" data-value="10">10%</span> <span class="pokemon-name">Galarian Sneasel (Farfuret de Galar)</span></li>
@@ -652,7 +715,10 @@
             <div class="zone" id="centrale-electrique">
                 <div class="zone-name">
                     <h2>Centrale Electrique</h2>
-                    <div class="type-button electric">ELECTRIC</div>
+                    <div class="type-button electric">
+                        <img src="images/icons/electric.svg" alt="">
+                        <span class="type-name">ELECTRIC</span>
+                    </div>
                 </div>
                 <ul>
                     <li><span class="percentage" data-value="10">10%</span> <span class="pokemon-name">Wattrel (Zapétrel)</span></li>
@@ -674,8 +740,14 @@
                 <div class="zone-name">
                     <h2>Rivière de l’Envol</h2>
                     <div class="zone-type">
-                        <div class="type-button flying">FLYING</div>
-                        <div class="type-button water">WATER</div>
+                        <div class="type-button flying">
+                            <img src="images/icons/flying.svg" alt="">
+                            <span class="type-name">FLYING</span>
+                        </div>
+                        <div class="type-button water">
+                            <img src="images/icons/water.svg" alt="">
+                            <span class="type-name">WATER</span>
+                        </div>
                     </div>
                 </div>
                 <ul>
@@ -699,8 +771,14 @@
                 <div class="zone-name">
                     <h2>Collines Verdoyantes</h2>
                     <div class="zone-type">
-                        <div class="type-button bug">BUG</div>
-                        <div class="type-button grass">GRASS</div>
+                        <div class="type-button bug">
+                            <img src="images/icons/bug.svg" alt="">
+                            <span class="type-name">BUG</span>
+                        </div>
+                        <div class="type-button grass">
+                            <img src="images/icons/grass.svg" alt="">
+                            <span class="type-name">GRASS</span>
+                        </div>
                     </div>
                 </div>
                 <ul>

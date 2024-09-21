@@ -197,6 +197,12 @@ span, button{
 #wall-fame-img{
     max-width: 280px;
 }
+
+.fame-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 #table-type-img{
     max-width: 400px;
 }
